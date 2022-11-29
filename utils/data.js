@@ -11,7 +11,7 @@ const usernames = [
   'Bradley_Cooper'
 ];
 
-const thoughtBodies = [
+const thoughtText = [
   'Surf is better when there is an offshore wind.',
   'Really want it to stop raining soon!',
   'I prefer salty popcorn over sweet, sweet is not popcorn!',
@@ -25,7 +25,7 @@ const thoughtBodies = [
   'Best summer snack is watermelon.',
 ];
 
-const possibleReactions = [
+const reactions = [
   'I disagree!',
   'No way!',
   'This was awesome',
@@ -42,14 +42,14 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // Gets a random username
 const getRandomUsername = () =>
-  `${getRandomArrItem(usernames)} ${getRandomArrItem(usernames)}`;
+  `${getRandomArrItem(usernames)}`;
 
 // Function to generate random videos that we can add to the database. Includes video responses.
 const getRandomThoughts = (int) => {
   let results = [];
   for (let i = 0; i < int; i++) {
     results.push({
-      thought: getRandomArrItem(thoughtBodies),
+      thought: getRandomArrItem(thoughtText),
       reaction: [...getThoughtReactions(3)],
     });
   }
@@ -59,12 +59,12 @@ const getRandomThoughts = (int) => {
 // Create the reactions that will be added to each thought
 const getThoughtReactions = (int) => {
   if (int === 1) {
-    return getRandomArrItem(possibleReactions);
+    return getRandomArrItem(reactions);
   }
   let results = [];
   for (let i = 0; i < int; i++) {
     results.push({
-      reactionBody: getRandomArrItem(possibleReactions),
+      reaction: getRandomArrItem(reactions),
       username: getRandomUsername(),
     });
   }

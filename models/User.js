@@ -1,5 +1,10 @@
 const { Schema, model } = require('mongoose');
 
+var validateEmail = function (email) {
+  var re = /^.+@(?:[\w-]+\.)+\w+$/;
+  return re.test(email)
+};
+
 // Schema to create User model
 const userSchema = new Schema(
   {
@@ -39,10 +44,7 @@ const userSchema = new Schema(
   }
 );
 
-const friendCount = async () =>
-  Student.aggregate()
-    .count('studentCount')
-    .then((numberOfStudents) => numberOfStudents);
+
 
 
 // Creates a virtual property `friendCount` that gets and aggregate the user's friend count.
