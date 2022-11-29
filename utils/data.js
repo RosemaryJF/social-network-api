@@ -1,25 +1,14 @@
-const names = [
-  'Jodie',
-  'Whittaker',
-  'Michael',
-  'Moore',
-  'Catherine',
-  'Zeta-Jones',
-  'Jenna',
-  'Ortega',
-  'Bart',
-  'Simpson',
-  'Marilyn',
-  'Monrow',
-  'Manson',
-  'Hugh',
-  'Jack',
-  'Simon',
-  'Simmons',
-  'Zach',
-  'Braff',
-  'Bradley',
-  'Cooper'
+const usernames = [
+  'Jodie_Whittaker',
+  'Michael_Moore',
+  'Catherine_Zeta-Jones',
+  'Jenna_Ortega',
+  'Bart_Simpson',
+  'Marilyn_Monrow',
+  'Hugh_Jack',
+  'Simon_Simmons',
+  'Zach_Braff',
+  'Bradley_Cooper'
 ];
 
 const thoughtBodies = [
@@ -51,25 +40,23 @@ const users = [];
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-// Gets a random full name
-const getRandomName = () =>
-  `${getRandomArrItem(names)} ${getRandomArrItem(names)}`;
+// Gets a random username
+const getRandomUsername = () =>
+  `${getRandomArrItem(usernames)} ${getRandomArrItem(usernames)}`;
 
 // Function to generate random videos that we can add to the database. Includes video responses.
 const getRandomThoughts = (int) => {
   let results = [];
   for (let i = 0; i < int; i++) {
     results.push({
-      published: Math.random() < 0.5,
       thought: getRandomArrItem(thoughtBodies),
-      advertiserFriendly: Math.random() < 0.5,
-      responses: [...getThoughtResponses(3)],
+      reaction: [...getThoughtReactions(3)],
     });
   }
   return results;
 };
 
-// Create the responses that will be added to each video
+// Create the reactions that will be added to each thought
 const getThoughtReactions = (int) => {
   if (int === 1) {
     return getRandomArrItem(possibleReactions);
@@ -78,11 +65,11 @@ const getThoughtReactions = (int) => {
   for (let i = 0; i < int; i++) {
     results.push({
       reactionBody: getRandomArrItem(possibleReactions),
-      username: getRandomName(),
+      username: getRandomUsername(),
     });
   }
   return results;
 };
 
 // Export the functions for use in seed.js
-module.exports = { getRandomName, getRandomThoughts, getThoughtReactions };
+module.exports = { getRandomUsername, getRandomThoughts, getThoughtReactions };
