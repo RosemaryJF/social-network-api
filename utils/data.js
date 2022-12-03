@@ -1,14 +1,44 @@
-const usernames = [
-  'Jodie_Whittaker',
-  'Michael_Moore',
-  'Catherine_Zeta-Jones',
-  'Jenna_Ortega',
-  'Bart_Simpson',
-  'Marilyn_Monrow',
-  'Hugh_Jack',
-  'Simon_Simmons',
-  'Zach_Braff',
-  'Bradley_Cooper'
+const user = [
+  {
+    username: 'Jodie_Whittaker',
+    email: 'jodie_whittaker@gmail.com'
+  },
+  {
+    username: 'Michael_Moore',
+    email: 'michael_moore@gmail.com'
+  },
+  {
+    username: 'Catherine_Zeta-Jones',
+    email: 'catherine_zj@gmail.com'
+  },
+  {
+    username: 'Jenna_Ortega',
+    email: 'jenna_or_wednesday@gmail.com'
+  },
+  {
+    username: 'Bart_Simpson',
+    email: 'bart_simpson@gmail.com'
+  },
+  {
+    username: 'Marilyn_Monroe',
+    email: 'marilyn_monroe@gmail.com'
+  },
+  {
+    username: 'Hugh_Jackman',
+    email: 'hugh_jackman@gmail.com'
+  },
+  {
+    username: 'Simon_Simmons',
+    email: 'simon_simmo@gmail.com'
+  },
+  {
+    username: 'Zach_Braff',
+    email: 'zach_braff@gmail.com'
+  },
+  {
+    username: 'Bradley_Cooper',
+    email: 'bradley_cooper@gmail.com'
+  },
 ];
 
 const thoughtText = [
@@ -22,7 +52,6 @@ const thoughtText = [
   'Hello world',
   'Why did I think joining another social networking app was a good idea?!',
   'Morning person for the win.',
-  'Best summer snack is watermelon.',
 ];
 
 const reactions = [
@@ -41,22 +70,22 @@ const users = [];
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // Gets a random username
-const getRandomUsername = () =>
-  `${getRandomArrItem(usernames)}`;
+const getRandomUser = () =>
+  `${getRandomArrItem(user)}`;
 
-// Function to generate random videos that we can add to the database. Includes video responses.
+// Function to generate random thoughts tha can be added to the database. Includes thought reactions.
 const getRandomThoughts = (int) => {
   let results = [];
   for (let i = 0; i < int; i++) {
     results.push({
       thought: getRandomArrItem(thoughtText),
-      reaction: [...getThoughtReactions(3)],
+      reaction: [...getThoughtReactions(1)],
     });
   }
   return results;
 };
 
-// Create the reactions that will be added to each thought
+// Create the reaction that will be added to each thought
 const getThoughtReactions = (int) => {
   if (int === 1) {
     return getRandomArrItem(reactions);
@@ -65,11 +94,11 @@ const getThoughtReactions = (int) => {
   for (let i = 0; i < int; i++) {
     results.push({
       reaction: getRandomArrItem(reactions),
-      username: getRandomUsername(),
+      user: getRandomUser(),
     });
   }
   return results;
 };
 
 // Export the functions for use in seed.js
-module.exports = { getRandomUsername, getRandomThoughts, getThoughtReactions };
+module.exports = { getRandomUser, getRandomThoughts, getThoughtReactions };
