@@ -1,9 +1,4 @@
-const { Schema, model } = require('mongoose');
-
-var validateEmail = function (email) {
-  var re = /^.+@(?:[\w-]+\.)+\w+$/;
-  return re.test(email)
-};
+const { Schema, model, Types } = require('mongoose');
 
 // Schema to create User model
 const userSchema = new Schema(
@@ -20,8 +15,10 @@ const userSchema = new Schema(
       unique: true,
       required: true,
       trim: true,
-      validate: [validateEmail, 'Please give a valid email address'],
-      match: [/^.+@(?:[\w-]+\.)+\w+$/, 'Please give a valid email address']
+      match: [
+        /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+        "Please enter a valid email address",
+      ]
     },
     thoughts: [
       {
@@ -44,17 +41,12 @@ const userSchema = new Schema(
   }
 );
 
-
-
-
-// Creates a virtual property `friendCount` that gets and aggregate the user's friend count.
+// Creates a virtual property `friendCount` that returns the Users total friend count.
 userSchema
   .virtual('friendCount')
   // Getter
   .get(function () {
-    User.aggregate()
-      .count('friendCount')
-      .then((numberOfFriends) => numberOfFriends);
+    return this.friends.length;
   })
 
 // Initialises the User model

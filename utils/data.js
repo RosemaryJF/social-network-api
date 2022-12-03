@@ -1,11 +1,11 @@
 const user = [
   {
-    username: 'Jodie_Whittaker',
-    email: 'jodie_whittaker@gmail.com'
+    "username": "Jodie_Whittaker",
+    "email": "jodie_whittaker@gmail.com"
   },
   {
-    username: 'Michael_Moore',
-    email: 'michael_moore@gmail.com'
+    "username": "Michael_Moore",
+    "email": "michael_moore@gmail.com"
   },
   {
     username: 'Catherine_Zeta-Jones',

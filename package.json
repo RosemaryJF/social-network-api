@@ -1,16 +1,19 @@
 {
   "name": "social-network-api",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A social network API for a web application where users can share their thoughts, react to friends thoughts, and create a friend list.",
   "main": "server.js",
   "license": "MIT",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
-    "dev": "nodemon server",
+    "dev": "nodemon server.js",
     "seed": "node utils/seed"
   },
   "dependencies": {
     "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongodb": "^4.2.2",
     "mongoose": "^6.0.13"
   },
   "devDependencies": {
