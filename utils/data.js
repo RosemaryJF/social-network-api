@@ -1,44 +1,14 @@
 const user = [
-  {
-    "username": "Jodie_Whittaker",
-    "email": "jodie_whittaker@gmail.com"
-  },
-  {
-    "username": "Michael_Moore",
-    "email": "michael_moore@gmail.com"
-  },
-  {
-    username: 'Catherine_Zeta-Jones',
-    email: 'catherine_zj@gmail.com'
-  },
-  {
-    username: 'Jenna_Ortega',
-    email: 'jenna_or_wednesday@gmail.com'
-  },
-  {
-    username: 'Bart_Simpson',
-    email: 'bart_simpson@gmail.com'
-  },
-  {
-    username: 'Marilyn_Monroe',
-    email: 'marilyn_monroe@gmail.com'
-  },
-  {
-    username: 'Hugh_Jackman',
-    email: 'hugh_jackman@gmail.com'
-  },
-  {
-    username: 'Simon_Simmons',
-    email: 'simon_simmo@gmail.com'
-  },
-  {
-    username: 'Zach_Braff',
-    email: 'zach_braff@gmail.com'
-  },
-  {
-    username: 'Bradley_Cooper',
-    email: 'bradley_cooper@gmail.com'
-  },
+  "Jodie_Whittaker",
+  "Michael_Moore",
+  'Catherine_Zeta-Jones',
+  'Jenna_Ortega',
+  'Bart_Simpson',
+  'Marilyn_Monroe',
+  'Hugh_Jackman',
+  'Simon_Simmons',
+  'Zach_Braff',
+  'Bradley_Cooper',
 ];
 
 const thoughtText = [
@@ -64,12 +34,10 @@ const reactions = [
   'I prefer not to think about that.',
 ];
 
-const users = [];
-
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-// Gets a random username
+// Gets a random user
 const getRandomUser = () =>
   `${getRandomArrItem(user)}`;
 

@@ -16,8 +16,7 @@ module.exports = {
       .sort({ _id: -1 })
       .then(async (users) => {
         const userObj = {
-          users,
-          friendCount: await friendCount(),
+          users
         };
         return res.json(userObj);
       })
