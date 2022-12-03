@@ -24,14 +24,6 @@ router.route('/:userId')
   .put(updateUser)
   .delete(deleteUser);
 
-// // /api/users/:userId/thoughts
-// // Creates (POST) a thought from a user by the user ID
-// router.route('/:userId/thoughts').post(addThought);
-
-// // /api/users/:userId/thoughts/:thoughtId
-// // Deletes a thought
-// router.route('/:userId/thoughts/:thoughtId').delete(removeThought);
-
 // /api/users/:userId/friends/:friendId
 // Creates (POST) a friend for an existing user and deletes (DELETE) a friend
 router.route('/:userId/friends/:friendId')

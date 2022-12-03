@@ -1,5 +1,5 @@
 const { Schema, Types } = require('mongoose');
-const moment = require('moment')
+const moment = require('moment');
 
 // Schema to create Reaction model
 const reactionSchema = new Schema(
